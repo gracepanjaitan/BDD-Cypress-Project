@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npx cypress run",
+    "test:e2e": "npx cypress run --headless --spec 'cypress/e2e/features/*.feature'"
   },
   "repository": {
     "type": "git",
