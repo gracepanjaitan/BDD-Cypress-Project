@@ -1,0 +1,24 @@
+{
+  "name": "bdd-cypress-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx cypress run",
+    "test:e2e": "npx cypress run --headless --spec 'cypress/e2e/features/*.feature'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gracepanjaitan/BDD-Cypress-Project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gracepanjaitan/BDD-Cypress-Project/issues"
+  },
+  "homepage": "https://github.com/gracepanjaitan/BDD-Cypress-Project#readme",
+  "devDependencies": {
+    "cypress-cucumber-preprocessor": "^4.3.1"
+  }
+}
