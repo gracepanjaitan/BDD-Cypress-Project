@@ -1,26 +1,26 @@
-name: Run Cypress BDD Tests
+name: CI - Run Tests
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]       # Jalankan setiap kali push ke branch main
   pull_request:
-    branches: [ main ]
+    branches: [main]       # Jalankan saat ada PR ke branch main
 
 jobs:
   test:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v3
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v3
         with:
-            node-version: 18
+          node-version: '18'  # Sesuaikan dengan versi yang kamu pakai
 
-      - name: install dependencies
+      - name: Install dependencies
         run: npm install
 
-      - name: Run Cypress tests
-        run: npx cypress run
+      - name: Run Tests
+        run: npm test         # Atau: npx jest / npx cypress run (tergantung test tool-mu)
