@@ -1,13 +1,10 @@
-name: Cypress Tests UI
+name: Run Cypress BDD Tests
 
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
   pull_request:
-    branches:
-      - main
-  workflow_dispatch:
+    branches: [ main ]
 
 jobs:
   test:
@@ -15,21 +12,15 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: 18
+            node-version: 18
 
-      - name: Clean and install dependencies
-        run: rm -rf node_modules package-lock.json && npm install
-
-      - name: Fix Cypress permissions
-        run: chmod +x node_modules/.bin/cypress
-
-      - name: Debug CI
-        run: ls -lah node_modules/.bin/
+      - name: install dependencies
+        run: npm install
 
       - name: Run Cypress tests
-        run: ./node_modules/.bin/cypress run
+        run: npx cypress run
